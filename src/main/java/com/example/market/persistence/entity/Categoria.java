@@ -2,6 +2,7 @@ package com.example.market.persistence.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 public class Categoria {
 
@@ -22,6 +23,8 @@ public class Categoria {
         private boolean estado;
 
 
+        @OneToMany(mappedBy = "categoria")
+        private List<Producto> productos;
 
         public Integer getIdCategoria() {
             return idCategoria;

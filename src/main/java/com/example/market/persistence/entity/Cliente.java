@@ -3,6 +3,7 @@ package com.example.market.persistence.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigInteger;
+import java.util.List;
 
 public class Cliente {
     @Entity
@@ -23,8 +24,8 @@ public class Cliente {
         private String direccion;
         @Column(name = "correo_electronico")
         private String correoElectronico;
-
-
+        @OneToMany(mappedBy = "cliente")
+        private List<Compra> compras;
 
         public String getId() {
             return id;
